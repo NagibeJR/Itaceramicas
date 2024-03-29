@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <link rel="icon" href="imagens/logo.svg" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ItaCeramica</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Biblioteca jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Biblioteca SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.18/dist/sweetalert2.all.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.18/dist/sweetalert2.min.css" rel="stylesheet">
+  <!-- Biblioteca Anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+</head>
+
+<body>
+  <div class="box">
+
+    <header id="header">
+      <div class="nav">
+        <div class="interno">
+          <div class="direita">
+            <img id="logo" src="/imagens/logo.svg" alt="Logo Itaceramica" />
+
+            <div class="pesquisa">
+              <div class="search">
+                <input type="text" name="search" id="search" placeholder="O que deseja buscar?" required />
+              </div>
+              <a href="#">
+                <button class="submit">
+                  <img src="/imagens/button.svg" alt="lupa" />
+                </button>
+              </a>
+            </div>
+            <!--search bar-->
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="login">
+        <h2 data-aos="fade-up">Iniciar sessão</h2>
+
+        <form id="loginForm">
+          <div class="dados">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" placeholder="Coloque seu login" required />
+          </div>
+          <div class="dados">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" placeholder="Coloque sua senha" required />
+          </div>
+          <button type="submit">Entrar</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="mensagem">
+        <!--links de acesso-->
+        <div class="contato">
+          <h3>Fale conosco</h3>
+          <div class="campos">
+            <div class="nome">
+              <input type="text" name="nome" placeholder="Nome" required />
+            </div>
+            <!--caixa de identificação-->
+            <div class="escrever">
+              <input type="text" name="mensagem" placeholder="Escrever sua mensagem" required />
+            </div>
+            <!--caixa de escrita-->
+          </div>
+          <!--caixas de contato-->
+          <a href="#">
+            <button>Enviar mensagem</button>
+          </a>
+        </div>
+        <!--campo de contato-->
+      </div>
+      <!--container de mensagens-->
+      <!--divisão de mensagem-->
+      <div class="rodape">
+        <h3>Desenvolvido por Nagibe Junior 2023</h3>
+      </div>
+      <!--rodape-->
+    </footer>
+    <!--footer-->
+  </div>
+
+  <div class="script-container">
+    <script>
+      $(document).ready(function () {
+        $('#loginForm').submit(function (event) {
+          event.preventDefault();
+
+          var username = $('#username').val();
+          var password = $('#password').val();
+
+          if (username === 'admin' && password === 'admin') {
+            Swal.fire({
+              icon: 'success',
+              title: 'Login bem-sucedido!',
+              showConfirmButton: false,
+              timer: 1500
+            }).then(function () {
+              window.location.href = './index.html';
+            });
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Login ou senha inválidos',
+              text: 'Por favor, tente novamente.',
+              confirmButtonText: 'OK'
+            });
+          }
+
+          $('#username').val('');
+          $('#password').val('');
+        });
+      });
+    </script>
+  </div>
+
+
+
+
+  <script>
+    anime({
+      targets: '.box',
+      rotate: '360deg',
+      duration: 1000,
+    });
+  </script>
+
+</body>
+
+</html>
